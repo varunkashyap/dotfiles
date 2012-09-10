@@ -11,10 +11,6 @@
 "   Windows - <userdir>\_vimrc is acceptable vimrc
 "           - <userdir>\vimfiles or <userdir>\.vim are acceptable vim home dirs
 
-set nocompatible   " be iMproved
-set nocompatible   " Disable vi-compatibility
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
 filetype off       " required!
 
 " Set vundle home directory
@@ -28,9 +24,23 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'godlygeek/tabular'
+
+" Vim powerline (status line, requires font patching)
 Bundle 'Lokaltog/vim-powerline'
+let g:Powerline_symbols = 'fancy'
+set nocompatible   " Disable vi-compatibility
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+
+" CtrlP - fuzzyfinder 
+Bundle 'kien/ctrlp.vim'
+let g:ctrlp_map = '<space>'
+let g:ctrlp_cmd = 'CtrlPMixed'
+inoremap <C-space> <Esc>:CtrlPMixed<cr>
+
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'myusuf3/numbers.vim'
+Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim'}
 " ---- BUNDLES END -----
 
 " User Interface tweaks 
@@ -55,6 +65,11 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set softtabstop=4
+
+" Custom Syntax
+" ---------------
+" Set groovy fileType for gradle files
+au BufNewFile,BufRead *.gradle set filetype=groovy
 
 " Enable filetype plugins (also required by nerd commenter)
 :filetype plugin on
