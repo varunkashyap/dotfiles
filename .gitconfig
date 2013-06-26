@@ -1,0 +1,6 @@
+[log]
+	abbrevCommit = yes
+[core]
+	abbrev = 8
+[color]
+	ui = auto
