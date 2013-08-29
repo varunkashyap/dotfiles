@@ -1,5 +1,14 @@
 [log]
 	abbrevCommit = yes
+
+[alias]
+    l = log --graph --date=iso8601
+    changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+    short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
+    changelog = log --pretty=format:\" * %s\"
+    shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
+    chunkyadd = add --patch
+
 [apply]
     whitespace = fix
 [core]
